@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebRTC/PeerJS Audio Call</title>
+  <link rel="stylesheet" type="text/css" href="/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div id="display"></div>
+  </div>
+
+  <footer>
+    <div class="wrapper">
+      <a onclick="goTo()">Iniciar otra llamda</a>
+    </div>
+  </footer>
+
+ 
+  
+  <script type="text/javascript">
+    window.API_KEY = "<%= apiKey %>";
+    window.call = <%- JSON.stringify(call, null, 2) %>;
+
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  function goTo() {
+    var qParam = getParameterByName('courseId');
+    window.location.href = '/new/' + qParam;
+  }
+  </script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

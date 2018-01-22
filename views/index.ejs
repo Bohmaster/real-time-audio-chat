@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connections</title>
+  <link rel="stylesheet" type="text/css" href="/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <div class="wrapper overview">
+    <h1>Connections-SI Aula virtual</h1>
+    
+    <p>
+      Haz click en empezar llamada para inicar conversación en el aula.
+    </p>
+      
+    <p>
+      <br><br>
+      <a onclick="goTo()">Empezar llamada</a>
+    </p>
+  </div>
+
+  <script type="text/javascript">
+
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  function goTo() {
+    var qParam = getParameterByName('courseId');
+    window.location.href = '/new/' + qParam;
+  }
+  </script>
+
+
+
+</body>
+</html>
