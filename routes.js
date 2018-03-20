@@ -54,7 +54,7 @@ router.get('/:id.json', function(req, res) {
 // Render call page
 router.get('/:id', function(req, res) {
   var call = Call.get(req.param('id'));
-  // console.log(call);
+  console.log('?????', call);
   if (!call) return res.redirect('/new');
 
   res.render('call', {
