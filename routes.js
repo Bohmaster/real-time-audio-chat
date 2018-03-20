@@ -16,7 +16,7 @@ router.get('/new/:courseId', function(req, res) {
   console.log(call, course, 'YES?!');
   Request.put(
       'http://localhost:3000/api/courses/' + course,
-      { json: { audioUrl: 'http://localhost:6767/' + call.id } },
+      { json: { audioUrl: 'https://connections-si.com:8443/' + call.id } },
       function (error, response, body) {
           if (!error && response.statusCode == 200) {
               console.log(body)
